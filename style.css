@@ -15,21 +15,21 @@ html{
 }
 
 :root{
-  --bg-color: #000000;
-  --bg-button-color: #1a1a1a;
-  --bg-task-color:#2a2a2a;
-  --primary-text-color: #f4f4f4;
-  --delete-color:rgb(212, 76, 76);
-
+  --bg-color: #060a10;
+  --bg-button-color: rgba(255, 255, 255, 0.04);
+  --bg-task-color: rgba(255, 255, 255, 0.04);
+  --primary-text-color: #e8e8ec;
+  --delete-color: #d44c4c;
   
 
-  --nav-padding: 15px 30px;
-  --section-padding: 15px 30px;
-  --padding-s:5px;
-  --padding-m:10px;
-  --padding-l:15px;
-  --padding-xl:20px;
-  --padding-xxl:30px;
+  --nav-padding: 18px 32px;
+  --section-padding: 12px 32px 32px;
+  --padding-xs: 4px;
+  --padding-s: 6px;
+  --padding-m: 12px;
+  --padding-l: 16px;
+  --padding-xl: 20px;
+  --padding-xxl: 24px;
 
   --border-radius-s: 5px;
   --border-radius-m: 10px;
