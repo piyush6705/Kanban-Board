@@ -1,23 +1,23 @@
-# 📋 Kanban Board
+# Kanban Board
 
 A simple and interactive **Kanban Board** built using **HTML, CSS, and JavaScript**. Users can create, organize, move, and delete tasks across different workflow stages. Tasks are automatically saved using **Local Storage**, so they remain available even after refreshing the page.
 
 ---
 
-## 🚀 Features
+## Features
 
-- ✅ Create new tasks
-- 📌 Drag and drop tasks between columns
-- 🗑️ Delete tasks
-- 💾 Save tasks using Local Storage
-- 🔄 Restore tasks after page refresh
-- 📊 Live task count for each column
-- 🌙 Clean and responsive dark UI
-- 🪟 Modal popup for adding tasks
+-  Create new tasks
+-  Drag and drop tasks between columns
+-  Delete tasks
+-  Save tasks using Local Storage
+-  Restore tasks after page refresh
+-  Live task count for each column
+-  Clean and responsive dark UI
+-  Modal popup for adding tasks
 
 ---
 
-## 🛠️ Built With
+##  Built With
 
 - HTML5
 - CSS3
@@ -26,7 +26,7 @@ A simple and interactive **Kanban Board** built using **HTML, CSS, and JavaScrip
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 kanban-board/
@@ -41,7 +41,7 @@ kanban-board/
 
 
 
-## ⚙️ How It Works
+##  How It Works
 
 ### Add a Task
 
@@ -57,9 +57,9 @@ The task is added to the **To Do** column.
 
 Tasks can be dragged between:
 
-- 📝 To Do
-- 🚧 In Progress
-- ✅ Done
+-  To Do
+-  In Progress
+-  Done
 
 The board automatically updates and saves the new task positions.
 
@@ -94,7 +94,7 @@ restores all previously saved tasks.
 
 ---
 
-## 📚 JavaScript Concepts Used
+## JavaScript Concepts Used
 
 - DOM Manipulation
 - Event Listeners
@@ -112,22 +112,22 @@ restores all previously saved tasks.
 
 ---
 
-## 🎯 Future Improvements
+## Future Improvements
 
-- ✏️ Edit existing tasks
-- 🎨 Task priority colors
-- 📅 Due dates
-- 🔍 Search tasks
-- 🏷️ Task labels/tags
-- 🌙 Light/Dark theme toggle
-- 📱 Improved mobile experience
-- 📦 Export/Import tasks
-- 👤 User authentication
-- ☁️ Backend database integration
+-  Edit existing tasks
+-  Task priority colors
+-  Due dates
+-  Search tasks
+-  Task labels/tags
+-  Light/Dark theme toggle
+-  Improved mobile experience
+-  Export/Import tasks
+-  User authentication
+-  Backend database integration
 
 ---
 
-## 📖 What I Learned
+##  What I Learned
 
 While building this project, I learned how to:
 
@@ -140,7 +140,7 @@ While building this project, I learned how to:
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. Clone the repository
 
@@ -158,7 +158,7 @@ cd kanban-board
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Piyush**
 
@@ -166,6 +166,6 @@ GitHub: https://github.com/your-username
 
 ---
 
-## ⭐ If you like this project
+## If you like this project
 
 Give this repository a ⭐ on GitHub!
