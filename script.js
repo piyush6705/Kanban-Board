@@ -6,6 +6,9 @@ const progress = document.querySelector('#progress');
 const done = document.querySelector('#done');
 const columns = [todo, progress, done];
 let dragElement = null;
+const titleInput = document.querySelector("#task-title-input");
+const descInput = document.querySelector("#task-desc-input");
+
 
 if (localStorage.getItem("tasks")) {
   const data = JSON.parse(localStorage.getItem("tasks"));
@@ -122,25 +125,15 @@ modalBg.addEventListener("click", () => {
 
 
 addTaskButton.addEventListener("click", () => {
-  const taskTitle = document.querySelector('#task-title-input').value
-  const taskDesc = document.querySelector("#task-desc-input").value
+  const taskTitle = titleInput.value.trim();
+  const taskDesc = descInput.value.trim();
 
-  addTask(taskTitle,taskDesc, todo);
+  if (!taskTitle) return;
 
-  
-
-  
+  addTask(taskTitle, taskDesc, todo);
   updateTaskCount();
 
-
-
-
-
-  div.addEventListener("drag" ,(e) => {
-    dragElement=div;
-  })
-
-  modal.classList.remove("active")
-
-  
+  titleInput.value = "";
+  descInput.value = "";
+  modal.classList.remove("active");
 })
