@@ -13,21 +13,7 @@ if (localStorage.getItem("tasks")) {
   for (const col in data) {
     const column = document.querySelector(`#${col}`);
     data[col].forEach(task => {
-      const div = document.createElement("div")
-
-      div.classList.add("task")
-      div.setAttribute("draggable", "true")
-
-      div.innerHTML = `
-        <h2>${task.title}</h2>
-        <p>${task.desc}</p>
-        <button>Delete</button>
-      `;
-      column.appendChild(div);
-
-      div.addEventListener("drag", (e) => {
-        dragElement = div;
-      })
+      addTask(task.title, task.desc, column);
     })
 
     const tasks = column.querySelectorAll(".task");
@@ -38,9 +24,52 @@ if (localStorage.getItem("tasks")) {
 
 const tasks = document.querySelectorAll('.task');
 
+function addTask(title, desc, column){
+  const div = document.createElement("div")
+
+  div.classList.add("task")
+  div.setAttribute("draggable", "true")
+
+  div.innerHTML = `
+      <h2>${title}</h2>
+      <p>${desc}</p>
+      <button>Delete</button>
+  `
+
+  column.appendChild(div)
+
+  div.addEventListener("drag", (e) => {
+    dragElement = div;
+  })
+
+  const deleteButton = div.querySelector("button");
+  deleteButton.addEventListener("click", () => {
+    div.remove();
+    updateTaskCount();
+  })
+
+  return div;
+}
+
+function updateTaskCount() {
+  columns.forEach(col => {
+      const tasks = col.querySelectorAll(".task");
+      const count = col.querySelector(".right");
+
+      tasksData[col.id] = Array.from(tasks).map(t => ({
+          title: t.querySelector("h2").innerText,
+          desc: t.querySelector("p").innerText
+      }));
+
+      localStorage.setItem("tasks", JSON.stringify(tasksData));
+
+      count.innerText = tasks.length;
+    });
+}
+
 tasks.forEach(task =>{
   task.addEventListener("drag", (e) => {
-   //console.log("dragging",e);
+   
    dragElement =task;
   })
 })
@@ -66,26 +95,10 @@ function addDragEventsOnColumn(column){
   
 
     column.appendChild(dragElement);
+    column.classList.remove("hover-over");
 
-    columns.forEach(col =>  {
-      const tasks = col.querySelectorAll('.task');
-      const count =col.querySelector(".right");
-
-      count.innerText = tasks.length;
-    })
-    columns.forEach(col => {
-      const tasks = col.querySelectorAll(".task");
-      const count = col.querySelector(".right");
-
-      tasksData[col.id] = Array.from(tasks).map(t => ({
-          title: t.querySelector("h2").innerText,
-          desc: t.querySelector("p").innerText
-      }));
-
-      localStorage.setItem("tasks", JSON.stringify(tasksData));
-
-      count.innerText = tasks.length;
-    });
+    
+    updateTaskCount()
   })
 }
 
@@ -112,37 +125,14 @@ addTaskButton.addEventListener("click", () => {
   const taskTitle = document.querySelector('#task-title-input').value
   const taskDesc = document.querySelector("#task-desc-input").value
 
-  const div = document.createElement("div")
-
-  div.classList.add("task")
-  div.setAttribute("draggable", "true")
-
-  div.innerHTML = `
-    <h2>${taskTitle}</h2>
-    <p>${taskDesc}</p>
-    <button>Delete</button>
-
-  `
-  todo.appendChild(div);
+  addTask(taskTitle,taskDesc, todo);
 
   
 
   
-  columns.forEach(col => {
-      const tasks = col.querySelectorAll(".task");
-      const count = col.querySelector(".right");
+  updateTaskCount();
 
-      tasksData[col.id] = Array.from(tasks).map(t => ({
-          title: t.querySelector("h2").innerText,
-          desc: t.querySelector("p").innerText
-      }));
 
-      localStorage.setItem("tasks", JSON.stringify(tasksData));
-
-      count.innerText = tasks.length;
-  });
-
-  console.log(tasksData);
 
 
 
