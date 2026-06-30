@@ -1,3 +1,5 @@
+let tasksData= {};
+
 
 const todo = document.querySelector('#todo');
 const progress = document.querySelector('#progress');
@@ -5,7 +7,6 @@ const done = document.querySelector('#done');
 const columns = [todo, progress, done];
 let dragElement = null;
 
-console.log(todo,progress,done);
 
 const tasks = document.querySelectorAll('.task');
 
@@ -34,7 +35,7 @@ function addDragEventsOnColumn(column){
   column.addEventListener("drop", (e) => {
     e.preventDefault();
     
-    console.log("Dropped", dragElement, column);
+   // console.log("Dropped", dragElement, column);
 
     column.appendChild(dragElement);
 
@@ -86,12 +87,24 @@ addTaskButton.addEventListener("click", () => {
 
   
 
-  columns.forEach(col =>  {
-      const tasks = col.querySelectorAll('.task');
-      const count =col.querySelector(".right");
+  
+  columns.forEach(col => {
+      const tasks = col.querySelectorAll(".task");
+      const count = col.querySelector(".right");
+
+      tasksData[col.id] = Array.from(tasks).map(t => ({
+          title: t.querySelector("h2").innerText,
+          desc: t.querySelector("p").innerText
+      }));
+
+      localStorage.setItem("tasks", JSON.stringify(tasksData));
 
       count.innerText = tasks.length;
-    })
+  });
+
+  console.log(tasksData);
+
+
 
   div.addEventListener("drag" ,(e) => {
     dragElement=div;
