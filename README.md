@@ -162,7 +162,7 @@ cd kanban-board
 
 **Piyush**
 
-GitHub: https://github.com/your-username
+GitHub: https://github.com/piyush6705
 
 ---
 
